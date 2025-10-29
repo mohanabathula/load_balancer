@@ -18,6 +18,14 @@ This guide explains how to run **CARLA 0.9.13** with the **CARLA ROS Bridge** on
 
 ---
 
+## Documentation Links
+
+- **CARLA 0.9.13 Documentation**: [CARLA 0.9.13 Build Guide](https://carla.readthedocs.io/en/0.9.13/build_linux/)
+- **CARLA ROS Bridge Documentation**: [ROS Bridge Docs](https://carla.readthedocs.io/projects/ros-bridge/en/latest/ros_installation_ros1/)
+- **CARLA ROS Bridge GitHub Repository**: [GitHub - carla-simulator/ros-bridge](https://github.com/carla-simulator/ros-bridge)
+
+---
+
 ## Steps to Run CARLA with ROS Bridge
 
 ### 1. Launch CARLA Server
@@ -75,6 +83,17 @@ Once the CARLA simulation and ROS Bridge are running, you can control the ego ve
     - `E` - Turn right more sharply
 
 - **If manual control does not work**, press `B` to enable manual control mode for the ego vehicle.
+
+---
+
+### Key Updates:
+
+1. **Documentation Links**: 
+   - **CARLA 0.9.13 Documentation**: Points to the build guide for CARLA 0.9.13.
+   - **CARLA ROS Bridge Documentation**: Links to the ROS installation guide for the ROS Bridge.
+   - **CARLA ROS Bridge GitHub**: Provides the official GitHub repository for the ROS Bridge.
+
+2. **Instructions**: The steps to launch CARLA and the ROS Bridge remain the same,
 
 ---
 
