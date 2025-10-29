@@ -70,30 +70,60 @@ Next, we will launch the **CARLA ROS Bridge** and spawn an example ego vehicle.
 
 ---
 
-### 3. Manual Control of the Vehicle
+## 3.Manual Control of the Ego Vehicle
 
 Once the CARLA simulation and ROS Bridge are running, you can control the ego vehicle manually using the **keyboard**.
 
-- **To drive the vehicle**, use the following keys:
-    - `W` - Move forward
-    - `A` - Turn left
-    - `S` - Move backward
-    - `D` - Turn right
-    - `Q` - Turn left more sharply
-    - `E` - Turn right more sharply
+### Keyboard Controls
 
-- **If manual control does not work**, press `B` to enable manual control mode for the ego vehicle.
+| Key | Action                                      |
+| --- | ------------------------------------------- |
+| `W` | Accelerate / Move forward                   |
+| `A` | Turn left                                   |
+| `S` | Brake                                       |
+| `D` | Turn right                                  |
+| `Q` | Revese gear                                 |
+| `B` | Toggle manual control mode (enable/disable) |
+
+> If manual control is not responding, press **`B`** once to enable manual override mode.
 
 ---
 
-### Key Updates:
+## 4.Viewing Camera Streams (RGB, Depth, Semantic)
 
-1. **Documentation Links**: 
-   - **CARLA 0.9.13 Documentation**: Points to the build guide for CARLA 0.9.13.
-   - **CARLA ROS Bridge Documentation**: Links to the ROS installation guide for the ROS Bridge.
-   - **CARLA ROS Bridge GitHub**: Provides the official GitHub repository for the ROS Bridge.
+To visualize the camera streams published by CARLA, run:
 
-2. **Instructions**: The steps to launch CARLA and the ROS Bridge remain the same,
+```bash
+rqt_image_view
+```
+
+Then select the topics from the dropdown list:
+
+| Camera Type           | ROS Topic                                              |
+| --------------------- | ------------------------------------------------------ |
+| RGB Camera            | `/carla/ego_vehicle/rgb_front/image`                   |
+| Depth Camera          | `/carla/ego_vehicle/depth_front/image`                 |
+| Semantic Segmentation | `/carla/ego_vehicle/semantic_segmentation_front/image` |
+
+---
+
+## 5.Publish Vehicle Control Commands Manually (Example)
+
+To command the vehicle to **take a left turn** using ROS:
+
+```bash
+rostopic pub /carla/ego_vehicle/vehicle_control_cmd_manual carla_msgs/CarlaEgoVehicleControl \
+"{throttle: 0.3, steer: 0.5, brake: 0.0, hand_brake: false, reverse: false, gear: 0, manual_gear_shift: false}"
+```
+
+### Explanation of Values
+
+| Field            | Meaning                                         |
+| ---------------- | ----------------------------------------------- |
+| `throttle: 0.3`  | 30% forward acceleration                        |
+| `steer: 0.5`     | Turn left (+1.0 = full left, -1.0 = full right) |
+| `brake: 0.0`     | No braking                                      |
+| `reverse: false` | Drive forward                                   |
 
 ---
 
