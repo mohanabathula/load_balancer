@@ -43,7 +43,7 @@ Login to VNC next follow the next steps.
     make launch
     ```
 
-    This will start the CARLA and the play the simualtor then server will start, and the simulation will be ready to connect with ROS Bridge.
+    This will start the CARLA and then play the simualtor then server will start, and the simulation will be ready to connect with ROS Bridge.
 
 ---
 
